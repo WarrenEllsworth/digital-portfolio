@@ -1,0 +1,53 @@
+* Qucs 26.1.0  receiver.sch
+.INCLUDE "MCP6001.lib"
+In1 _net0 in  DC 1M SIN(1M 0 0 0 0 0) AC 0 ACPHASE 0
+D1 in _net0 DMOD_D1 AREA=1.0 Temp=26.85
+.MODEL DMOD_D1 D (Is=1.2P N=2 Cj0=0 M=0.5 Vj=0.5 Fc=0.5 Rs=0.0 Tt=0.0P Kf=0.0 Af=1.0 Bv=10 Ibv=1M Xti=3.0 Eg=1.11 Tcv=0.0 Trs=0.0 Ttt1=0.0 Ttt2=0.0 Tm1=0.0 Tm2=0.0 Tnom=26.85 )
+R1 0 in  1650 tc1=0.0 tc2=0.0 
+In2 _net0 in  DC 0 SIN(0 400N 100 0 0 0) AC 400N ACPHASE 0
+In3 _net0 in  DC 0 SIN(0 400N 20000 0 0 0) AC 400N ACPHASE 0
+V1 _net0 0 DC 3.3 SIN(3.3 30M 1481 0 0 0) AC 30M ACPHASE 0
+XX1  _net1 _net2 VDC 0 _net3 MCP6001 
+Is _net0 in  DC 0 SIN(0 40N 2000 0 0 0) AC 40N ACPHASE 0
+C10 0 vp  1M 
+R9 0 vp  100K tc1=0.0 tc2=0.0 
+R5 _net0 vp  100K tc1=0.0 tc2=0.0 
+C12 in _net1  53.1N 
+R12 vp _net1  3K tc1=0.0 tc2=0.0 
+XX2  _net4 _net5 VDC 0 out MCP6001 
+C13 _net3 _net4  53.1N 
+R13 vp _net4  3K tc1=0.0 tc2=0.0 
+R3 _net2 _net3  210K tc1=0.0 tc2=0.0 
+R15 _net5 out  210K tc1=0.0 tc2=0.0 
+C4 _net2 _net3  189P 
+C14 _net5 out  189P 
+C15 0 vp  100U 
+R16 _net0 VDC  100 tc1=0.0 tc2=0.0 
+C16 VDC 0  100U 
+R10 vp _net2  2100 tc1=0.0 tc2=0.0 
+R14 vp _net5  2100 tc1=0.0 tc2=0.0 
+
+.control
+
+op
+print v(VDC) v(in) v(out) v(vp)   > spice4qucs.dc1.ngspice.dc.print
+destroy all
+reset
+
+tran 0.000100503 0.02 0 
+write spice4qucs.tr1.plot v(VDC) v(in) v(out) v(vp)
+destroy all
+reset
+
+ac lin 200 1 20k 
+let vmax = maximum(V(out))
+let vmin = minimum(V(out))
+let vpp = vmax - vmin
+let gdB = 20*log10(mag(V(out)/V(in)))
+write spice4qucs.ac1.plot v(VDC) v(in) v(out) v(vp) vmax vmin vpp gdB
+destroy all
+reset
+
+exit
+.endc
+.END
