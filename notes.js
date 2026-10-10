@@ -1,7 +1,7 @@
-/* Add your own notes inside the quotes below. Commit this file to publish them. */
+/* Edit these notes and commit this file to publish updates. */
 window.portfolioNotes = {
-  "artifact1Note": "",
-  "artifact2Note": "",
-  "designLearningNote": "",
-  "nextStepNote": ""
+  "artifact1Note": "This is a high pass filter that I built using an op amp. You can see the AC response with the corner around 100 Hz. It is cool to see this signal working from a high pass to low pass perspective. I think it is interesting to work with op amps in simulations and then transfer them to real circuits and having them work in real life.",
+  "artifact2Note": "This is an image of a final design for my two op amps for the laser tag gun. It was interesting to go through the process of trial and error here. I tried many different configurations, I appreciated that we were given unclear documentation and not a lot of guidance. I was able to learn a lot by researching and trial and error.",
+  "designLearningNote": "I have learned throughout this class that perseverance and patience is what makes effective engineers. I have struggled through many problems and bugs this semester, and I have seen that the key is persistence -- trial and error. You have to keep trying different things, figuring out what the root cause is. The best way to debug is to always be learning.",
+  "nextStepNote": "Through the next part of the semester I plan to improve my process to be proactive about learning about things not just how they will kick things into the goal to get a good grade but where I apply what I am learning to the workforce. Be ready to take detours to learn the valuable things I don't normally learn."
 };
