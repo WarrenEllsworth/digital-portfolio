@@ -24,3 +24,8 @@ Portrait and hardware photographs were supplied by Warren. Published photo deriv
 BYU's logo is sourced from its [official website](https://www.byu.edu/); the PassiveLogic mark is sourced from its [official website](https://www.passivelogic.com/). They identify education/employment context and do not imply endorsement.
 
 The PCB is at an early assembly stage. Circuit photographs alone do not establish electrical performance. The Zenner description distinguishes onboarding/driver work and observed network joins from verified physical readings.
+
+### Final content refinements
+The public page now uses a compact **More projects** list with native keyboard-operable disclosures. It embeds supporting images inline and does not link schematic/data/netlist/ZIP downloads. Existing source files remain in the repository history and checkout. All four original reflections appear together at the end, under **Reflections on learning and building**.
+
+Dynus and Diagnostic Ventures marks come from Warren’s supplied project assets. Nucleus Fund’s mark comes from its [official team page](https://www.nucleusfundutah.com/our-team); Stirling Heights’ wordmark comes from its [company profile](https://www.axial.net/company/stirling-heights/). Role descriptions and selected metrics use resume evidence; the 58% manufacturing-cost figure is explicitly a projection.
